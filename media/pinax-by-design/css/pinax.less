@@ -1,0 +1,249 @@
+/* @group Pinax default styles */
+
+    /* @group Typography */
+
+    /* @group Structure */
+
+    body {
+    	.container();
+    	font-weight: lighter;
+    }
+
+    body:after {
+    	/* Apply .clearfix by perishable */
+    	.clearfix();
+    }
+
+    /* @end */
+
+    /* @group Header */
+    
+    body > header#main-header {
+        
+    	.column();    
+	    
+    	logo {
+    		.column(@columns/2);
+    		.alpha();
+    		.top();
+    		
+    		.font-smoothing();
+    		
+            img {
+                /* Hide the usual funky green pinax image logo */
+                display: none;
+            }
+    		a {
+    			text-decoration: none;
+    			font-size: 4em;
+    			line-height: 2em;
+    		}
+    		a:after {
+    		    /* Display plain text instead */
+    		    
+    	        content: "Pinax";
+    	        font-weight: 100;
+    	        color: #333;
+    	    }
+    	}
+    	#account {
+    	    float:right;
+    	    font-size: .875em;
+    		ul {
+    			.flatlist();
+    		}
+    	}
+    	#main {
+    		.column();
+		    .alpha();
+		    .omega();
+    		.tabs();
+		
+    		border-bottom : 1px solid #ccc;
+		
+    		#left_tabs, #right_tabs {
+    			ul {
+    				li {
+    					a {
+    						font-weight: bold;
+    						font-size: .875em;
+    						.rounded-top(3px, 3px);
+    					}				
+    				}
+    			}
+    		}
+    		#right_tabs {
+    			float: right;
+    			li:last-child {
+                    .omega();
+    			}
+    		}
+    	}
+    	#subnav {
+		
+    		.column();
+    		.alpha();
+		    .omega();
+    		.tabs();
+    		ul {
+    			float: right;
+    			li {
+    				a {
+    					.rounded-bottom(3px, 3px);
+    					font-size: .75em;
+    				}
+    			}
+    			li:last-child {
+    				margin-right: 0px;
+				
+    			}
+    		}
+    	}
+    }
+
+    header {
+    	.column();
+    }
+
+    /* @end */
+
+    /* @group Messages */
+    
+    #messages {
+        
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left:0;
+        opacity: .9;
+        z-index: 9999;
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            .top;
+            .bottom();
+            li {
+                text-align: center;
+                padding: 0 @line-height/2;
+                margin: 0px;
+            }
+            .error, .alert, .notice, .success, .info {
+                /*.rounded(@line-height * 2);*/
+            }
+        }
+    }
+
+    /* @group Content */
+
+    #body {
+    	.column(@columns/4*3);
+    }
+
+    /* @group Aside */
+
+    aside {
+    	.column(@columns/4*1);
+    	section {
+    		.column(@columns/4*1);
+    		.alpha();
+    		.omega();
+    		margin-bottom: @row-height;
+    		header {
+    			.column(@columns/4*1);
+    			.alpha();
+    			.omega();
+    		}
+    	}
+	
+	
+    }
+
+    /* @end */
+
+    /* @end */
+
+    /* @group Footer */
+
+    footer#main-footer {
+	
+    	.column();
+    	clear: both;
+    	
+    	background-color: #ddd;
+	
+    	margin-top: @line-height;
+    	margin-bottom: @line-height;
+	
+    	.rounded(3px);
+	    
+	    .legal {
+	        font-size: 0.75em;
+	        margin-left: @column-gutter;
+	    }
+	    
+    	logo {
+    		float: left;
+    		margin: @row-gutter @column-gutter;
+    	}
+    	nav {
+    		float: right;
+    		.flatlist();
+    		.tabs();
+    		margin: @row-gutter @column-gutter;
+		
+    		ul {
+    			li {
+    				a {
+    					padding: 0 5px;
+    					color: #333;
+    					text-decoration: none;
+    					.rounded(20px);
+    				}
+    				a: hover {
+    					text-decoration: none;
+    				}
+    			}
+    			li:last-child {
+    				margin-right: 0;
+    				a {
+    					padding-right: 0;
+    				}
+    			}
+    		}
+    	}
+    }
+
+    /* @end */
+
+/* @end */
+
+/* @group Body */
+
+#body {
+	section,
+	header,
+	footer {
+		.column(@columns/4*3);
+		.alpha();
+		.omega();
+	}
+}
+
+/* @end */
+
+
+/* @group Forms */
+
+.errorlist {
+    list-style: none;
+}
+
+.form_block {
+    display: block;
+    float: left;
+    clear:both;
+}
+
+/* @end */

@@ -1,0 +1,47 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}" lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">{# IE? go Chrome Frame! #}
+
+        <title>{% if SITE_NAME %}{{ SITE_NAME }} : {% endif %}{% block head_title %}{% endblock %}</title>
+        
+        <link rel="stylesheet/less" href="{{ STATIC_URL }}css/main.less" type="text/css" />
+            
+        <script src="{{ STATIC_URL }}js/less/less-1.0.35.min.js"></script>
+        <script src="{{ STATIC_URL }}js/jquery/jquery-1.4.2.min.js"></script>
+        
+        {% if debug %}
+        {#  Handy for development #}
+        <script src="{{ STATIC_URL }}js/lesser/grid.js"></script>
+        <script type="text/javascript" charset="utf-8">         
+            less.env = "development";
+            less.watch();
+        </script>
+        {% endif %}
+
+        {% block extra_head_base %}
+            {% block extra_head %}{% endblock %}
+        {% endblock %}
+    </head>
+    
+    <body class="{% block body_class %}{% endblock %}">
+        
+        {% if debug %}
+            {# Show the design grid #}
+            <grid></grid>
+        {% endif %}
+        
+        
+        {% block body_outer %}
+        <div id="body">
+            
+            {% block body %}
+            {% endblock %}
+            
+        </div>
+        {% endblock %}
+        
+    </body>
+</html>
